@@ -15,3 +15,19 @@ spec:
       containers:
       - name: {{.Values.name}}
         image: {{.Values.image}}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: {{.Values.name}}-deployment
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: {{.Values.name}}
+  type: NodePort
+status:
+  loadBalancer: {}
