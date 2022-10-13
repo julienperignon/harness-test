@@ -1,3 +1,13 @@
+variable "region" {}
+variable "access_key" {}
+variable "secret_key" {}
+variable "tag" {}
+
+provider "aws" {
+  region  = "${var.region}"
+  access_key = "${var.access_key}"
+  secret_key = "${var.secret_key}"
+}
 
 variable "web-open-ports" {
   type = list(number)
