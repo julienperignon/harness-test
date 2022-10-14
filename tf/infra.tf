@@ -4,8 +4,8 @@ variable "secret_key" {}
 
 provider "aws" {
   region  = "${var.region}"
-  access_key = "${var.access_key}"
-  secret_key = "${var.secret_key}"
+  access_key = "<+secrets.getValue("access_key")>"
+  secret_key = "<+secrets.getValue("secret_key")>"
 }
 
 variable "web-open-ports" {
